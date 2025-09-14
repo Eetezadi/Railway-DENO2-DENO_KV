@@ -1,7 +1,7 @@
 # Deno 2 with Deno KV Starter Template for Railway
 
-A production-ready starter template showcasing Deno KV with a web interface. 
-While Railway's default runtime doesn't support Deno 2 yet, this template 
+A production-ready starter template showcasing Deno KV with a web interface.
+While Railway's default runtime doesn't support Deno 2 yet, this template
 provides a custom Docker configuration to ensure full compatibility.
 
 ## Features
@@ -12,6 +12,8 @@ provides a custom Docker configuration to ensure full compatibility.
 - 🚂 **Railway Ready**: Configured for easy deployment
 
 ## Deploy on Railway
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic)
 
 ### Available Commands
 
@@ -26,22 +28,20 @@ deno task test
 deno task start
 ```
 
-## Deployment to Railway via Terminal
+## Railway Deployment
 
-1. Create a new Railway project:
-   ```bash
-   railway init
-   ```
+Install CLI and deploy:
 
-2. Link your local project:
-   ```bash
-   railway link
-   ```
+```bash
+# Install Railway CLI
+npm i -g @railway/cli
 
-3. Deploy to Railway:
-   ```bash
-   railway up
-   ```
+# Login and deploy
+railway login
+railway init
+railway link
+railway up
+```
 
 ## License
 

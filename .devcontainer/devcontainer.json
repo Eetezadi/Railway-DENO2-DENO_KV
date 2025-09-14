@@ -12,8 +12,7 @@
       "installOhMyZsh": false,
       "upgradePackages": false
     },
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+    "ghcr.io/devcontainers/features/node:1": {} // Node.js for frontend tooling
   },
   "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}", // Ensure Git safe directory configuration
   "forwardPorts": [
