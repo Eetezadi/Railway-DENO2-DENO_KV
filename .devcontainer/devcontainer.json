@@ -1,5 +1,5 @@
 {
-  "name": "Deno",
+  "name": "Deno 2 and Deno KV Development Container",
   "dockerComposeFile": "docker-compose.yml",
   "service": "deno",
   "workspaceFolder": "/workspaces/Railway-DENO2-DENO_KV",

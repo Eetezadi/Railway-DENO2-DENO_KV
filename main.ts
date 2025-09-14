@@ -160,7 +160,11 @@ async function main() {
   console.log("- GET / : Shows list of all users");
   console.log("- GET /users/:username : Shows details for a specific user");
   
-  await Deno.serve({ port: 8000 }, (req) => handleRequest(req, kv)).finished;
+  // Get port from environment variable or use default 8000
+  const port = parseInt(Deno.env.get("PORT") || "8000");
+  
+  // Start the server and wait for it to finish
+  await Deno.serve({ port }, (req) => handleRequest(req, kv)).finished;
 }
 
 // This ensures the main function is called only when the script is executed directly
