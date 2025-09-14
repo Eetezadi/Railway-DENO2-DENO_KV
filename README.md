@@ -11,26 +11,13 @@ provides a custom Docker configuration to ensure full compatibility.
   Sqlite in folder /db.
 - 🚂 **Railway Ready**: Configured for easy deployment
 
-## Deploy on Railway
+## Railway Deployment
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/ZweBXA?utm_medium=integration&utm_source=button&utm_campaign=generic)
 
-### Available Commands
+### Deploy on Railway using CLI
 
-```bash
-# Start development server with hot reload
-deno task dev
-
-# Run tests
-deno task test
-
-# Run production server
-deno task start
-```
-
-## Railway Deployment
-
-Install CLI and deploy:
+Install Railway CLI and deploy:
 
 ```bash
 # Install Railway CLI
@@ -41,6 +28,19 @@ railway login
 railway init
 railway link
 railway up
+```
+
+## Available Commands
+
+```bash
+# Start development server with hot reload
+deno task dev
+
+# Run tests
+deno task test
+
+# Run production server
+deno task start
 ```
 
 ## License
