@@ -13,11 +13,13 @@ db/
 # Version control
 .git
 .gitignore
+.github/
 
 # Environment files
 .env
 
 # Development files
+.devcontainer/
 *_test.ts
 README.md
 LICENSE

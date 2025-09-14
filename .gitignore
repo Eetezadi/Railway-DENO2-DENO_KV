@@ -11,6 +11,7 @@ db/
 *.db-wal
 
 # Version control
+./github
 .git
 .gitignore
 
