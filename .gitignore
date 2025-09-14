@@ -14,14 +14,6 @@ db/
 .git
 .gitignore
 
-# Environment files
-.env
-
-# Development files
-*_test.ts
-README.md
-LICENSE
-
 # IDE and editor files
 .vscode/
 .idea/
