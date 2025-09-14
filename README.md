@@ -1,12 +1,12 @@
 # Deno 2 with Deno KV Starter Template for Railway
 
-A Deno 2 starter template demonstrating how to use Deno KV with a web interface,
-ready to deploy on Railway. Railway currently (September 2025), does not support
-Deno 2, but we add it via Dockerfile.
+A production-ready starter template showcasing Deno KV with a web interface. 
+While Railway's default runtime doesn't support Deno 2 yet, this template 
+provides a custom Docker configuration to ensure full compatibility.
 
 ## Features
 
-- 🌐 **Web Interface**: Simple HTTP server with HTML and JSON endpoints\
+- 🌐 **Web Interface**: Simple HTTP server with HTML and JSON endpoints
 - 🗄️ **Deno KV Storage**: Deno's built-in persistent key-value store based on
   Sqlite in folder /db.
 - 🚂 **Railway Ready**: Configured for easy deployment
