@@ -9,6 +9,7 @@ db/*
 *.db
 *.db-shm
 *.db-wal
+!.gitkeep
 
 # Version control
 ./github
