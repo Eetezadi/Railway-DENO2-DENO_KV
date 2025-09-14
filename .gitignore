@@ -1,0 +1,21 @@
+# This file specifies which files and directories should be excluded when building
+# the Docker image on Railway. Files listed here won't be copied into the Docker build context,
+# resulting in faster and cleaner production environment without development-only files.
+
+# Note: Patterns work similar to .gitignore:
+
+# Database files (the production database is on Railway)
+db/
+*.db
+*.db-shm
+*.db-wal
+
+# Version control
+./github
+.git
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
