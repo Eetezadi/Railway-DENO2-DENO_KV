@@ -22,9 +22,6 @@ db/
 README.md
 LICENSE
 
-# Dependency lock files
-deno.lock
-
 # IDE and editor files
 .vscode/
 .idea/
