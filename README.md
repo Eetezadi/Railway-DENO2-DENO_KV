@@ -27,10 +27,17 @@ npm i -g @railway/cli
 
 # Login and deploy
 railway login
-railway init
 railway link
 railway up
 ```
+
+### Data Persistence
+
+The template is configured for persistent data storage using volumes (Railway deploys on `/app`):
+
+- Database path: `/app/db/deno_kv.db`
+- Automatically creates persistent volume
+- Survives deployments and restarts
 
 ## Available Commands
 
@@ -47,7 +54,10 @@ deno task start
 
 ## Why Deploy Deno 2 and Deno KV on Railway?
 
-Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it. This template gets you started with Deno 2 and Deno KV with a single click.
+Railway is a singular platform to deploy your infrastructure stack. Railway will
+host your infrastructure so you don't have to deal with configuration, while
+allowing you to vertically and horizontally scale it. This template gets you
+started with Deno 2 and Deno KV with a single click.
 
 ## License
 

@@ -118,6 +118,7 @@ export async function handleRequest(req: Request, kv: Deno.Kv): Promise<Response
  */
 async function main() {
   // Initialize the KV store
+  // In Railway, create a persistent volume named '/app/db' (Railway deploy to /app)
   const kv = await Deno.openKv("./db/deno_kv.db");
 
   // Define sample users with diverse backgrounds
