@@ -45,6 +45,10 @@ deno task test
 deno task start
 ```
 
+## Why Deploy DEno 2 on Railway?
+
+Railway is a singular platform to deploy your infrastructure stack. Railway will host your infrastructure so you don't have to deal with configuration, while allowing you to vertically and horizontally scale it. This Template gets you started with Deno 2 and Deno KV.
+
 ## License
 
 This project is free software: you can redistribute it and/or modify it under
