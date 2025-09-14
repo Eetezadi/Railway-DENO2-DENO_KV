@@ -5,7 +5,7 @@
 # Note: Patterns work similar to .gitignore:
 
 # Database files (the production database is on Railway)
-db/
+db/*
 *.db
 *.db-shm
 *.db-wal
