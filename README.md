@@ -4,6 +4,8 @@ A production-ready starter template showcasing Deno KV with a web interface.
 While Railway's default runtime doesn't support Deno 2 yet, this template
 provides a custom Docker configuration to ensure full compatibility.
 
+This repo is also ready for Github Codespaces.
+
 ## Features
 
 - 🌐 **Web Interface**: Simple HTTP server with HTML and JSON endpoints
@@ -17,7 +19,7 @@ provides a custom Docker configuration to ensure full compatibility.
 
 ### Deploy on Railway using CLI
 
-Install Railway CLI and deploy:
+Run this reposiroy on Github Codespaces, install Railway CLI and deploy:
 
 ```bash
 # Install Railway CLI
