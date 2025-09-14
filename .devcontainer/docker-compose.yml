@@ -1,0 +1,15 @@
+services:
+  deno:
+    image: denoland/deno:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ..:/deno
+      - deno-cache:/deno-cache
+    working_dir: /deno
+    command: sleep infinity
+    environment:
+      DENO_DIR: /deno-cache
+
+volumes:
+  deno-cache:

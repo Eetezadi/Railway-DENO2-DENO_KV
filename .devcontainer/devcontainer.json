@@ -1,0 +1,42 @@
+{
+  "name": "Deno",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "deno",
+  "workspaceFolder": "/workspaces/Railway-DENO2-DENO_KV",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}, // Git for version control
+    "ghcr.io/devcontainers/features/git-lfs:1": {}, // Git LFS support
+    "ghcr.io/devcontainers/features/github-cli:1": {}, // GitHub CLI for repository management
+    "ghcr.io/devcontainers/features/common-utils:2": { // Common utilities
+      "installZsh": false,
+      "installOhMyZsh": false,
+      "upgradePackages": false
+    },
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}", // Ensure Git safe directory configuration
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "DENO Server"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "denoland.vscode-deno" // Deno extension for VS Code
+      ],
+      "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "editor.formatOnSave": true,
+        "deno.suggest.imports.hosts": {
+          "https://deno.land": true
+        }
+      }
+    }
+  }
+}
