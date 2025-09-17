@@ -22,4 +22,4 @@ ARG PORT=8000
 EXPOSE $PORT
 
 # Run using task
-CMD ["task", "start"]
+CMD ["deno", "task", "start"]
