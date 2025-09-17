@@ -105,15 +105,37 @@ export async function handleRequest(
 }
 
 /**
- * Main execution block to demonstrate functionality.
- * This part runs when you execute `deno run main.ts`.
+ * Sets up graceful shutdown handling for the server.
+ * Ensures clean exit on SIGTERM (Docker/Railway) and SIGINT (Ctrl+C).
+ * 
+ * @param server - The Deno server instance to shut down
+ * @param kv - The KV store instance to close
  */
+function setupGracefulShutdown(server: ReturnType<typeof Deno.serve>, kv: Deno.Kv) {
+  const shutdownHandler = () => {
+    console.log("Received shutdown signal, closing server gracefully...");
+    server.shutdown();
+
+    // Allow in-flight requests to complete
+    setTimeout(async () => {
+      await kv.close();
+      console.log("Shutdown complete");
+      Deno.exit(0);
+    }, 100);
+  };
+
+  // Handle Docker/Railway shutdown and Ctrl+C
+  Deno.addSignalListener("SIGTERM", shutdownHandler);
+  Deno.addSignalListener("SIGINT", shutdownHandler);
+}
+
 /**
  * Main application entry point.
  * When run directly, this function:
  * 1. Opens a connection to the Deno KV store located in /db
  * 2. Populates it with sample user data
  * 3. Starts a web server on port 8000
+ * 4. Sets up graceful shutdown handling
  *
  * The server provides a simple web interface to view the sample data.
  */
@@ -159,26 +181,13 @@ async function main() {
   // Get port from environment variable or use default 8000
   const port = parseInt(Deno.env.get("PORT") || "8000");
 
-  // Create the server instance
+  // Create and start the server
   const server = Deno.serve({ port }, (req) => handleRequest(req, kv));
+  
+  // Set up graceful shutdown handling, this is important to avoid data corruption and crashes on Railway
+  setupGracefulShutdown(server, kv);
 
-  // Graceful shutdown handler for clean container termination
-  const shutdownHandler = () => {
-    console.log("Received shutdown signal, closing server gracefully...");
-    server.shutdown();
-
-    // Allow in-flight requests to complete
-    setTimeout(async () => {
-      await kv.close();
-      console.log("Shutdown complete");
-      Deno.exit(0);
-    }, 100);
-  };
-
-  // Handle Docker/Railway shutdown and Ctrl+C
-  Deno.addSignalListener("SIGTERM", shutdownHandler);
-  Deno.addSignalListener("SIGINT", shutdownHandler);
-
+  // Log server information
   console.log(`Server running at http://localhost:${port}`);
   console.log("Available routes:");
   console.log("GET / : Shows list of all users");
