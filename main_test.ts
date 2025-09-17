@@ -54,7 +54,7 @@ Deno.test("HTTP server handler", async (t) => {
   // Each test gets its own fresh in-memory database
   // This ensures a clean state for testing the HTTP endpoints
   const kv = await Deno.openKv(":memory:");
-  
+
   await t.step("handles valid user request", async () => {
     // Add a test user
     const userData: UserData = {
@@ -67,10 +67,10 @@ Deno.test("HTTP server handler", async (t) => {
     // Test the request
     const req = new Request("http://localhost:8000/users/testuser");
     const res = await handleRequest(req, kv);
-    
+
     assertEquals(res.status, 200);
     assertEquals(res.headers.get("content-type"), "application/json");
-    
+
     const body = await res.json();
     assertEquals(body.name, userData.name);
     assertEquals(body.country, userData.country);
@@ -80,7 +80,7 @@ Deno.test("HTTP server handler", async (t) => {
   await t.step("handles non-existent user", async () => {
     const req = new Request("http://localhost:8000/users/nonexistent");
     const res = await handleRequest(req, kv);
-    
+
     assertEquals(res.status, 404);
     assertEquals(await res.text(), "User not found");
   });
@@ -88,7 +88,7 @@ Deno.test("HTTP server handler", async (t) => {
   await t.step("handles invalid path", async () => {
     const req = new Request("http://localhost:8000/invalid");
     const res = await handleRequest(req, kv);
-    
+
     assertEquals(res.status, 400);
     assertEquals(await res.text(), "Invalid path");
   });
@@ -96,26 +96,49 @@ Deno.test("HTTP server handler", async (t) => {
   await t.step("displays list of users on root path", async () => {
     // Add some test users
     const users = [
-      { username: "amara", data: { name: "Amara Okafor", country: "Nigeria", registered: new Date() } },
-      { username: "zola", data: { name: "Zola Ndlovu", country: "South Africa", registered: new Date() } }
+      {
+        username: "amara",
+        data: {
+          name: "Amara Okafor",
+          country: "Nigeria",
+          registered: new Date(),
+        },
+      },
+      {
+        username: "zola",
+        data: {
+          name: "Zola Ndlovu",
+          country: "South Africa",
+          registered: new Date(),
+        },
+      },
     ];
-    
+
     for (const user of users) {
       await addUser(kv, user.username, user.data);
     }
 
     const req = new Request("http://localhost:8000/");
     const res = await handleRequest(req, kv);
-    
+
     assertEquals(res.status, 200);
     assertEquals(res.headers.get("content-type"), "text/html");
-    
+
     const html = await res.text();
     // Check if each user appears in the HTML
     for (const user of users) {
-      assert(html.includes(user.data.name), `HTML should contain user ${user.data.name}`);
-      assert(html.includes(user.data.country), `HTML should contain country ${user.data.country}`);
-      assert(html.includes(`/users/${user.username}`), `HTML should contain link to ${user.username}`);
+      assert(
+        html.includes(user.data.name),
+        `HTML should contain user ${user.data.name}`,
+      );
+      assert(
+        html.includes(user.data.country),
+        `HTML should contain country ${user.data.country}`,
+      );
+      assert(
+        html.includes(`/users/${user.username}`),
+        `HTML should contain link to ${user.username}`,
+      );
     }
   });
 

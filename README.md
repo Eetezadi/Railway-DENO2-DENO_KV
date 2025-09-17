@@ -33,7 +33,8 @@ railway up
 
 ### Data Persistence
 
-The template is configured for persistent data storage using volumes (Railway deploys on `/app`):
+The template is configured for persistent data storage using volumes (Railway
+deploys on `/app`):
 
 - Database path: `/app/db/deno_kv.db`
 - Automatically creates persistent volume
