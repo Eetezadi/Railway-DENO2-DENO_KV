@@ -107,11 +107,14 @@ export async function handleRequest(
 /**
  * Sets up graceful shutdown handling for the server.
  * Ensures clean exit on SIGTERM (Docker/Railway) and SIGINT (Ctrl+C).
- * 
+ *
  * @param server - The Deno server instance to shut down
  * @param kv - The KV store instance to close
  */
-function setupGracefulShutdown(server: ReturnType<typeof Deno.serve>, kv: Deno.Kv) {
+function setupGracefulShutdown(
+  server: ReturnType<typeof Deno.serve>,
+  kv: Deno.Kv,
+) {
   const shutdownHandler = () => {
     console.log("Received shutdown signal, closing server gracefully...");
     server.shutdown();
@@ -183,7 +186,7 @@ async function main() {
 
   // Create and start the server
   const server = Deno.serve({ port }, (req) => handleRequest(req, kv));
-  
+
   // Set up graceful shutdown handling, this is important to avoid data corruption and crashes on Railway
   setupGracefulShutdown(server, kv);
 
