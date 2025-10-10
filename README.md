@@ -1,8 +1,9 @@
-# Deno 2 with Deno KV Starter Template for Railway
+# Deno 2 with Deno KV Starter Template for Railway / Coolify
 
 A production-ready starter template showcasing Deno KV with a web interface.
 While Railway's default runtime doesn't support Deno 2 yet, this template
 provides a custom Docker configuration to ensure full compatibility.
+It works as well on Coolify.
 
 This repo is also ready for Github Codespaces.
 
