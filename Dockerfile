@@ -15,7 +15,7 @@ RUN deno install
 COPY . .
 
 # Cache the main application
-RUN deno cache src/main.ts
+RUN deno cache main.ts
 
 # Configure port (defaults to 8000, can be overridden at runtime)
 ARG PORT=8000
