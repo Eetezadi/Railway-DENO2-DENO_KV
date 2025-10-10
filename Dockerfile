@@ -1,5 +1,5 @@
 # Use Alpine Deno for smaller production image size
-ARG DENO_VERSION=2.5.1
+ARG DENO_VERSION=2.5.4
 FROM denoland/deno:alpine-${DENO_VERSION}
 
 # Set the working directory
