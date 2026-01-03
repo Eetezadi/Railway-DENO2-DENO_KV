@@ -16,7 +16,7 @@ This repo is also ready for Github Codespaces.
 
 ## Railway Deployment
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/IIoiXB?referralCode=wOLOAa)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/deno-2-starter?referralCode=wOLOAa&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
 ### Deploy on Railway using CLI
 
