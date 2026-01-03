@@ -9,10 +9,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "sunday"
-    labels:
-      - "dependencies"
-      - "docker"
-    reviewers:
+    assignees:
       - "Eetezadi"
 
   # Monitor devcontainer configuration
@@ -23,5 +20,5 @@ updates:
     labels:
       - "dependencies"
       - "devcontainers"
-    reviewers:
+    assignees:
       - "Eetezadi"
