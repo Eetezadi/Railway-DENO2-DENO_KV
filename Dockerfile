@@ -1,5 +1,5 @@
 # Use Alpine Deno for smaller production image size
-FROM denoland/deno:alpine-2.6.10
+FROM denoland/deno:alpine-2.7.1
 
 # Set the working directory
 WORKDIR /app
